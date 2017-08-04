@@ -9,12 +9,18 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="app.mvc"/>
+    <context:component-scan base-package="app" />
 
-    <mvc:annotation-driven/>
+    <beans profile="development">
+        <import resource="development_config.xml" />
+    </beans>
 
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+    <beans profile="production">
+        <import resource="production_config.xml" />
+    </beans>
+
+    <beans profile="test">
+        <import resource="test_config.xml" />
+    </beans>
+
 </beans>
