@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.romanmysan</groupId>
   <artifactId>WebApp</artifactId>
@@ -9,7 +8,7 @@
   
   <name>WebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
-	
+
 	<dependencyManagement>
         <dependencies>
             <dependency>
@@ -22,27 +21,62 @@
         </dependencies>
     </dependencyManagement>
 
-    <properties>
-        <webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>
-    </properties>
+    <!--<properties>-->
+        <!--<webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>-->
+    <!--</properties>-->
     <profiles>
         <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/default</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
             <id>development</id>
-            <properties>
-                <webXmlPath>src/main/config/development/WEB-INF/web.xml</webXmlPath>
-            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/development</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+            </build>
         </profile>
         <profile>
             <id>production</id>
-            <properties>
-                <webXmlPath>src/main/config/production/WEB-INF/web.xml</webXmlPath>
-            </properties>
+            <!--<properties>-->
+                <!--<webXmlPath>src/main/config/production/WEB-INF/web.xml</webXmlPath>-->
+            <!--</properties>-->
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/production</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+            </build>
         </profile>
         <profile>
             <id>test</id>
-            <properties>
-                <webXmlPath>src/main/config/test/WEB-INF/web.xml</webXmlPath>
-            </properties>
+            <!--<properties>-->
+                <!--<webXmlPath>src/main/config/test/WEB-INF/web.xml</webXmlPath>-->
+            <!--</properties>-->
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/test</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+            </build>
         </profile>
     </profiles>
 
@@ -77,11 +111,19 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
                 <configuration>
-                    <webXml>${webXmlPath}</webXml>
+                    <!--<webXml>${webXmlPath}</webXml>-->
+                    <webResources>
+                        <resource>
+                            <directory>
+                                src/main/resources/
+                            </directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
   </build>
-  
 </project>

@@ -1,1 +1,2 @@
-Hello world!
+${profile}
+${test}
