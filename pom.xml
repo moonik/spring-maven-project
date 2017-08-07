@@ -32,6 +32,7 @@
             </activation>
             <properties>
                 <webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>
+                <springVersion>4.3.5.RELEASE</springVersion>
             </properties>
             <!--<build>-->
                 <!--<filters>-->
@@ -123,6 +124,12 @@
                 <version>2.6</version>
                 <configuration>
                     <webXml>${webXmlPath}</webXml>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
