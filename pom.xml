@@ -14,69 +14,78 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
-                <version>4.0.5.RELEASE</version>
+                <version>4.3.5.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <!--<properties>-->
-        <!--<webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>-->
-    <!--</properties>-->
+    <properties>
+        <webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>
+    </properties>
     <profiles>
         <profile>
             <id>default</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/default</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
+            <properties>
+                <webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>
+            </properties>
+            <!--<build>-->
+                <!--<filters>-->
+                    <!--<filter>src/main/filters/application-development.properties</filter>-->
+                <!--</filters>-->
+                <!--<resources>-->
+                    <!--<resource>-->
+                        <!--<directory>src/main/resources/default</directory>-->
+                        <!--<filtering>true</filtering>-->
+                    <!--</resource>-->
+                <!--</resources>-->
+            <!--</build>-->
         </profile>
         <profile>
             <id>development</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/development</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
+            <properties>
+                <webXmlPath>src/main/config/development/WEB-INF/web.xml</webXmlPath>
+            </properties>
+            <!--<build>-->
+                <!--<resources>-->
+                    <!--<resource>-->
+                        <!--<directory>src/main/resources/development</directory>-->
+                        <!--<filtering>true</filtering>-->
+                    <!--</resource>-->
+                <!--</resources>-->
+            <!--</build>-->
         </profile>
         <profile>
             <id>production</id>
-            <!--<properties>-->
-                <!--<webXmlPath>src/main/config/production/WEB-INF/web.xml</webXmlPath>-->
-            <!--</properties>-->
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/production</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
+            <properties>
+                <webXmlPath>src/main/config/production/WEB-INF/web.xml</webXmlPath>
+            </properties>
+            <!--<build>-->
+                <!--<resources>-->
+                    <!--<resource>-->
+                        <!--<directory>src/main/resources/production</directory>-->
+                        <!--<filtering>true</filtering>-->
+                    <!--</resource>-->
+                <!--</resources>-->
+            <!--</build>-->
         </profile>
         <profile>
             <id>test</id>
-            <!--<properties>-->
-                <!--<webXmlPath>src/main/config/test/WEB-INF/web.xml</webXmlPath>-->
-            <!--</properties>-->
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/test</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
+            <properties>
+                <webXmlPath>src/main/config/test/WEB-INF/web.xml</webXmlPath>
+            </properties>
+            <!--<build>-->
+                <!--<resources>-->
+                    <!--<resource>-->
+                        <!--<directory>src/main/resources/test</directory>-->
+                        <!--<filtering>true</filtering>-->
+                    <!--</resource>-->
+                <!--</resources>-->
+            <!--</build>-->
         </profile>
     </profiles>
 
@@ -113,15 +122,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
-                    <!--<webXml>${webXmlPath}</webXml>-->
-                    <webResources>
-                        <resource>
-                            <directory>
-                                src/main/resources/
-                            </directory>
-                            <filtering>true</filtering>
-                        </resource>
-                    </webResources>
+                    <webXml>${webXmlPath}</webXml>
                 </configuration>
             </plugin>
         </plugins>

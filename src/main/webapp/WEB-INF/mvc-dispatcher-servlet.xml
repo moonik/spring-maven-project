@@ -12,25 +12,15 @@
 
     <mvc:annotation-driven/>
 
-
-    <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
-    <!--</bean>-->
-
-    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath:test.properties</value>
-                <value>classpath:default.properties</value>
-                <value>classpath:production.properties</value>
-                <value>classpath:development.properties</value>
-            </list>
-        </property>
-    </bean>
-
-    <!--<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
-
+    <!--<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath:application-test.properties</value>-->
+                <!--<value>classpath:application-default.properties</value>-->
+                <!--<value>classpath:application-production.properties</value>-->
+                <!--<value>classpath:application-development.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
     <!--</bean>-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
