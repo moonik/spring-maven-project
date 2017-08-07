@@ -9,3 +9,5 @@ java home : ${javaHome}
 basedir : ${basedir}
 <br>
 spring version : ${springVersion}
+<br>
+myFilteredProperty : ${filter}
