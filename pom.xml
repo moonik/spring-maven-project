@@ -33,7 +33,6 @@
             </activation>
             <properties>
                 <webXmlPath>src/main/config/default/WEB-INF/web.xml</webXmlPath>
-                <springVersion>4.3.5.RELEASE</springVersion>
             </properties>
             <!--<build>-->
                 <!--<filters>-->
