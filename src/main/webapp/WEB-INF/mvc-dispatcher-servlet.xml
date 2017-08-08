@@ -12,13 +12,13 @@
 
     <mvc:annotation-driven/>
 
-    <!--<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
-        <!--<property name="locations">-->
-            <!--<list>-->
-                <!--<value>classpath:application.properties</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>application.properties</value>
+            </list>
+        </property>
+    </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
